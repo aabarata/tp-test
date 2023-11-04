@@ -1,13 +1,17 @@
-export enum TodoStatus {
-  COMPLETED = "COMPLETED",
-  INCOMPLETE = "INCOMPLETE",
+export enum TodoPriority {
+  LOW = 1,
+  MEDIUM = 2,
+  HIGH = 3,
 }
 
 export type Todo = {
   id: string;
   name: string;
   notes: string;
-  status: TodoStatus;
+  completed: boolean;
+  priority: TodoPriority;
   assignedUserID: string | null;
   createdAt: Date;
 };
+
+export type TodoData = Omit<Todo, "id">;

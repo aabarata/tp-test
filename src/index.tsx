@@ -2,16 +2,20 @@ import React from "react";
 import ReactDOM from "react-dom/client";
 import App from "./App";
 import reportWebVitals from "./reportWebVitals";
+import { UserProvider } from "./context/user.context";
 import { TodoProvider } from "./context/todo.context";
+import "./index.css";
 
 const root = ReactDOM.createRoot(
   document.getElementById("root") as HTMLElement
 );
 root.render(
   <React.StrictMode>
-    <TodoProvider>
-      <App />
-    </TodoProvider>
+    <UserProvider>
+      <TodoProvider>
+        <App />
+      </TodoProvider>
+    </UserProvider>
   </React.StrictMode>
 );
 

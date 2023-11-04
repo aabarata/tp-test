@@ -1,5 +1,3 @@
-//https://randomuser.me/api/?exc=dob,registered,location
-
 export type User = {
   gender: "male" | "female";
   name: {
