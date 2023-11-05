@@ -2,7 +2,7 @@ import { TodoPriority } from "../@types/todo.d";
 
 export const getPriorityLabel = (priority: number): string => {
   const priorityIndex = Object.values(TodoPriority).indexOf(priority);
-  return Object.keys(TodoPriority)[priorityIndex];
+  return Object.keys(TodoPriority)[priorityIndex] || "Unclassified";
 };
 
 export const getPriorityColor = (priority: number): string => {
