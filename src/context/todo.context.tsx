@@ -14,6 +14,7 @@ export type TodoContextProps = {
   ) => void;
   removeTodo: (id: string) => void;
   toggleTodo: (id: string) => void;
+  getTodoById: (id: string) => Todo | undefined;
   getCompletedTodos: Todo[];
   getIncompletedTodos: Todo[];
 };
@@ -25,6 +26,7 @@ export const TodoContext = createContext<TodoContextProps>({
   updateTodo: () => null,
   removeTodo: () => null,
   toggleTodo: () => null,
+  getTodoById: () => undefined,
   getCompletedTodos: [],
   getIncompletedTodos: [],
 });
@@ -63,6 +65,10 @@ export const TodoProvider = ({ children }: { children: ReactNode }) => {
     );
   };
 
+  const getTodoById = (id: string): Todo | undefined => {
+    return todos.find((todo) => todo.id === id);
+  };
+
   const getCompletedTodos = useMemo<Todo[]>(
     () =>
       todos
@@ -70,6 +76,7 @@ export const TodoProvider = ({ children }: { children: ReactNode }) => {
         .sort((a, b) => b.priority - a.priority),
     [todos]
   );
+
   const getIncompletedTodos = useMemo<Todo[]>(
     () =>
       todos
@@ -85,6 +92,7 @@ export const TodoProvider = ({ children }: { children: ReactNode }) => {
     updateTodo,
     removeTodo,
     toggleTodo,
+    getTodoById,
     getCompletedTodos,
     getIncompletedTodos,
   };

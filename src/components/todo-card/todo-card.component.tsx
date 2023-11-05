@@ -1,4 +1,5 @@
 import { useContext, useState } from "react";
+import { Link } from "react-router-dom";
 import { Todo } from "../../@types/todo.d";
 import { TodoContext } from "../../context/todo.context";
 import { UserContext } from "../../context/user.context";
@@ -6,10 +7,10 @@ import {
   getPriorityColor,
   getPriorityLabel,
 } from "../../business/todo.helpers";
-import styles from "./todo-card.module.scss";
 import IconButton from "@mui/material/IconButton";
 import EditIcon from "@mui/icons-material/Edit";
 import DeleteIcon from "@mui/icons-material/Delete";
+import VisibilityIcon from "@mui/icons-material/Visibility";
 import Checkbox from "@mui/material/Checkbox";
 import displayNotification, {
   NotificationType,
@@ -75,24 +76,33 @@ const TodoCard = ({ className, todo }: TodoCardProps) => {
               !todo.completed || "line-through"
             }`}
           >
-            {todo.name}
+            <span className="mr-2">{todo.name}</span>
+            <Link to={`/todos/${todo.id}`}>
+              <IconButton
+                size="small"
+                aria-label="open todo"
+                sx={{ color: "inherit" }}
+              >
+                <VisibilityIcon fontSize="small" />
+              </IconButton>
+            </Link>
             <IconButton
               size="small"
               aria-label="edit todo"
-              sx={{ marginLeft: "8px", color: "inherit" }}
               disabled={todo.completed}
+              sx={{ color: "inherit" }}
               onClick={() => setIsUpdateTodoModalOpen(true)}
             >
               <EditIcon fontSize="small" />
-            </IconButton>{" "}
+            </IconButton>
             <IconButton
               size="small"
-              aria-label="edit todo"
+              aria-label="delete todo"
               sx={{ color: "inherit" }}
               onClick={onRemoveClickHandle}
             >
               <DeleteIcon fontSize="small" />
-            </IconButton>{" "}
+            </IconButton>
           </span>
           <span
             className="text-xs font-semibold"
@@ -105,9 +115,12 @@ const TodoCard = ({ className, todo }: TodoCardProps) => {
           <span className="text-sm text-gray-400">
             Created at: {getCreatedAtLabel()}
           </span>
-          <div
-            className={styles.assigned}
-            style={{ backgroundImage: `url(${user?.picture.thumbnail})` }}
+          <img
+            className="rounded-full"
+            alt="assigned user"
+            width={20}
+            height={20}
+            src={user?.picture.thumbnail}
           />
         </div>
       </div>
