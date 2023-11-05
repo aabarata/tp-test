@@ -10,8 +10,8 @@ export type Todo = {
   notes: string;
   completed: boolean;
   priority: TodoPriority;
-  assignedUserID: string | null;
-  createdAt: Date;
+  assignedUserUUID: string | null;
+  createdAt: number;
 };
 
 export type TodoData = Omit<Todo, "id">;

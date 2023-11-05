@@ -1,4 +1,4 @@
-import { ReactNode, createContext, useEffect, useState } from "react";
+import { ReactNode, createContext, useEffect, useMemo, useState } from "react";
 import { v4 as uuidv4 } from "uuid";
 import { Todo, TodoData } from "../@types/todo.d";
 
@@ -8,9 +8,14 @@ export type TodoContextProps = {
   todos: Todo[];
   setTodos: (todos: Todo[]) => void;
   addTodo: (todo: TodoData) => void;
-  updateTodo: (id: string, payload: Partial<Todo>) => void;
+  updateTodo: (
+    id: string,
+    payload: Pick<Todo, "name" | "notes" | "priority" | "assignedUserUUID">
+  ) => void;
   removeTodo: (id: string) => void;
   toggleTodo: (id: string) => void;
+  getCompletedTodos: Todo[];
+  getIncompletedTodos: Todo[];
 };
 
 export const TodoContext = createContext<TodoContextProps>({
@@ -20,6 +25,8 @@ export const TodoContext = createContext<TodoContextProps>({
   updateTodo: () => null,
   removeTodo: () => null,
   toggleTodo: () => null,
+  getCompletedTodos: [],
+  getIncompletedTodos: [],
 });
 
 function getInitialState(): Todo[] {
@@ -37,7 +44,10 @@ export const TodoProvider = ({ children }: { children: ReactNode }) => {
   const addTodo = (todo: TodoData) => {
     setTodos((prevTodos) => [...prevTodos, { ...todo, id: uuidv4() }]);
   };
-  const updateTodo = (id: string, payload: Partial<Todo>) => {
+  const updateTodo = (
+    id: string,
+    payload: Pick<Todo, "name" | "notes" | "priority" | "assignedUserUUID">
+  ) => {
     setTodos((prevTodos) =>
       prevTodos.map((todo) => (todo.id === id ? { ...todo, ...payload } : todo))
     );
@@ -53,6 +63,21 @@ export const TodoProvider = ({ children }: { children: ReactNode }) => {
     );
   };
 
+  const getCompletedTodos = useMemo<Todo[]>(
+    () =>
+      todos
+        .filter((todo) => todo.completed)
+        .sort((a, b) => b.priority - a.priority),
+    [todos]
+  );
+  const getIncompletedTodos = useMemo<Todo[]>(
+    () =>
+      todos
+        .filter((todo) => !todo.completed)
+        .sort((a, b) => b.priority - a.priority),
+    [todos]
+  );
+
   const value = {
     todos,
     setTodos,
@@ -60,6 +85,8 @@ export const TodoProvider = ({ children }: { children: ReactNode }) => {
     updateTodo,
     removeTodo,
     toggleTodo,
+    getCompletedTodos,
+    getIncompletedTodos,
   };
 
   return <TodoContext.Provider value={value}>{children}</TodoContext.Provider>;
