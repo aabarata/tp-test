@@ -15,7 +15,7 @@ Launches the test runner in the interactive watch mode.\
 
 ## Deployment
 
-[https://tp-test-eight.vercel.app/](Vercel)
+[Vercel](https://tp-test-eight.vercel.app/)
 
 ## Improvements points
 
