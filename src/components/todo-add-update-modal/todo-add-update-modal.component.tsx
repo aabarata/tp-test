@@ -160,8 +160,13 @@ const TodoAddUpdate = ({
         actions={
           <>
             <Button onClick={handleClose}>Close</Button>
-            <Button autoFocus disabled={disabled} onClick={onSubmitHandler}>
-              Save
+            <Button
+              autoFocus
+              variant="contained"
+              disabled={disabled}
+              onClick={onSubmitHandler}
+            >
+              Confirm
             </Button>
           </>
         }

@@ -67,7 +67,11 @@ const TodoCard = ({ className, todo }: TodoCardProps) => {
       }`}
     >
       <div className="flex flex-row items-center justify-center mr-2">
-        <Checkbox checked={todo.completed} onChange={onCompletedChangeHandle} />
+        <Checkbox
+          data-testid="card-action-status"
+          checked={todo.completed}
+          onChange={onCompletedChangeHandle}
+        />
       </div>
       <div className="flex flex-col flex-1">
         <div className="flex flex-row items-center justify-between mb-1">
@@ -76,9 +80,12 @@ const TodoCard = ({ className, todo }: TodoCardProps) => {
               !todo.completed || "line-through"
             }`}
           >
-            <span className="mr-2">{todo.name}</span>
+            <span className="mr-2" data-testid="card-name">
+              {todo.name}
+            </span>
             <Link to={`/todos/${todo.id}`}>
               <IconButton
+                data-testid="card-action-details"
                 size="small"
                 aria-label="open todo"
                 sx={{ color: "inherit" }}
@@ -87,6 +94,7 @@ const TodoCard = ({ className, todo }: TodoCardProps) => {
               </IconButton>
             </Link>
             <IconButton
+              data-testid="card-action-update"
               size="small"
               aria-label="edit todo"
               disabled={todo.completed}
@@ -96,6 +104,7 @@ const TodoCard = ({ className, todo }: TodoCardProps) => {
               <EditIcon fontSize="small" />
             </IconButton>
             <IconButton
+              data-testid="card-action-remove"
               size="small"
               aria-label="delete todo"
               sx={{ color: "inherit" }}
@@ -105,6 +114,7 @@ const TodoCard = ({ className, todo }: TodoCardProps) => {
             </IconButton>
           </span>
           <span
+            data-testid="card-priority"
             className="text-xs font-semibold"
             style={{ color: getPriorityColor(todo.priority) }}
           >
@@ -112,10 +122,11 @@ const TodoCard = ({ className, todo }: TodoCardProps) => {
           </span>
         </div>
         <div className="flex flex-row items-center justify-between">
-          <span className="text-sm text-gray-400">
+          <span className="text-sm text-gray-400" data-testid="card-created-at">
             Created at: {getCreatedAtLabel()}
           </span>
           <img
+            data-testid="card-assigned-photo"
             className="rounded-full"
             alt="assigned user"
             width={20}

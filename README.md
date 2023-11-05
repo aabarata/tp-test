@@ -32,3 +32,7 @@ Launches the test runner in the interactive watch mode.\
 - Add responsive classes/grid
 - Add draggable action to the todo cards.
 - Implement a real 404 page
+
+## Missing features
+
+- Login page ([Example using Google Auth](https://github.com/aabarata/crown-clothing))

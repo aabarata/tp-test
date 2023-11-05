@@ -1,4 +1,5 @@
 import { Todo } from "../../@types/todo";
+import styles from "./todo-list.module.scss";
 import TodoCard from "../todo-card/todo-card.component";
 
 type TodoListProps = {
@@ -9,7 +10,7 @@ type TodoListProps = {
 const TodoList = ({ todos, isCompletedList = false }: TodoListProps) => {
   return (
     <div
-      className={`rounded-lg p-3 ${
+      className={`rounded-lg p-3 ${styles.list} ${
         isCompletedList ? "bg-green-col" : "bg-blue-col"
       }`}
     >

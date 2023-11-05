@@ -41,15 +41,11 @@ const Home = () => {
       <div className="w-full flex flex-row gap-x-8 h-full">
         <div className="flex-1 h-full">
           <h3 className="text-lg font-semibold mb-2">Todo</h3>
-          {getIncompletedTodos.length > 0 && (
-            <TodoList todos={getIncompletedTodos} />
-          )}
+          <TodoList todos={getIncompletedTodos} />
         </div>
         <div className="flex-1 h-full">
           <h3 className="text-lg font-semibold mb-2">Completed</h3>
-          {getCompletedTodos.length > 0 && (
-            <TodoList todos={getCompletedTodos} isCompletedList />
-          )}
+          <TodoList todos={getCompletedTodos} isCompletedList />
         </div>
       </div>
       <TodoAddUpdate

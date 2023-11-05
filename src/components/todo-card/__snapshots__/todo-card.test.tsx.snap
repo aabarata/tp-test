@@ -1,0 +1,154 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`todoCard Should match the snapshot 1`] = `
+<div>
+  <div
+    class="flex flex-row bg-white px-1.5 py-2 rounded "
+  >
+    <div
+      class="flex flex-row items-center justify-center mr-2"
+    >
+      <span
+        class="MuiButtonBase-root MuiCheckbox-root MuiCheckbox-colorPrimary MuiCheckbox-sizeMedium PrivateSwitchBase-root MuiCheckbox-root MuiCheckbox-colorPrimary MuiCheckbox-sizeMedium MuiCheckbox-root MuiCheckbox-colorPrimary MuiCheckbox-sizeMedium css-12wnr2w-MuiButtonBase-root-MuiCheckbox-root"
+        data-testid="card-action-status"
+      >
+        <input
+          class="PrivateSwitchBase-input css-1m9pwf3"
+          data-indeterminate="false"
+          type="checkbox"
+        />
+        <svg
+          aria-hidden="true"
+          class="MuiSvgIcon-root MuiSvgIcon-fontSizeMedium css-i4bv87-MuiSvgIcon-root"
+          data-testid="CheckBoxOutlineBlankIcon"
+          focusable="false"
+          viewBox="0 0 24 24"
+        >
+          <path
+            d="M19 5v14H5V5h14m0-2H5c-1.1 0-2 .9-2 2v14c0 1.1.9 2 2 2h14c1.1 0 2-.9 2-2V5c0-1.1-.9-2-2-2z"
+          />
+        </svg>
+        <span
+          class="MuiTouchRipple-root css-8je8zh-MuiTouchRipple-root"
+        />
+      </span>
+    </div>
+    <div
+      class="flex flex-col flex-1"
+    >
+      <div
+        class="flex flex-row items-center justify-between mb-1"
+      >
+        <span
+          class="flex flex-row items-center font-bold true"
+        >
+          <span
+            class="mr-2"
+            data-testid="card-name"
+          >
+            todo 1
+          </span>
+          <a
+            href="/todos/9df5d6db-3cc2-4c86-919b-b781f0020c73"
+          >
+            <button
+              aria-label="open todo"
+              class="MuiButtonBase-root MuiIconButton-root MuiIconButton-sizeSmall css-yo6ymh-MuiButtonBase-root-MuiIconButton-root"
+              data-testid="card-action-details"
+              tabindex="0"
+              type="button"
+            >
+              <svg
+                aria-hidden="true"
+                class="MuiSvgIcon-root MuiSvgIcon-fontSizeSmall css-ptiqhd-MuiSvgIcon-root"
+                data-testid="VisibilityIcon"
+                focusable="false"
+                viewBox="0 0 24 24"
+              >
+                <path
+                  d="M12 4.5C7 4.5 2.73 7.61 1 12c1.73 4.39 6 7.5 11 7.5s9.27-3.11 11-7.5c-1.73-4.39-6-7.5-11-7.5zM12 17c-2.76 0-5-2.24-5-5s2.24-5 5-5 5 2.24 5 5-2.24 5-5 5zm0-8c-1.66 0-3 1.34-3 3s1.34 3 3 3 3-1.34 3-3-1.34-3-3-3z"
+                />
+              </svg>
+              <span
+                class="MuiTouchRipple-root css-8je8zh-MuiTouchRipple-root"
+              />
+            </button>
+          </a>
+          <button
+            aria-label="edit todo"
+            class="MuiButtonBase-root MuiIconButton-root MuiIconButton-sizeSmall css-yo6ymh-MuiButtonBase-root-MuiIconButton-root"
+            data-testid="card-action-update"
+            tabindex="0"
+            type="button"
+          >
+            <svg
+              aria-hidden="true"
+              class="MuiSvgIcon-root MuiSvgIcon-fontSizeSmall css-ptiqhd-MuiSvgIcon-root"
+              data-testid="EditIcon"
+              focusable="false"
+              viewBox="0 0 24 24"
+            >
+              <path
+                d="M3 17.25V21h3.75L17.81 9.94l-3.75-3.75L3 17.25zM20.71 7.04c.39-.39.39-1.02 0-1.41l-2.34-2.34a.9959.9959 0 0 0-1.41 0l-1.83 1.83 3.75 3.75 1.83-1.83z"
+              />
+            </svg>
+            <span
+              class="MuiTouchRipple-root css-8je8zh-MuiTouchRipple-root"
+            />
+          </button>
+          <button
+            aria-label="delete todo"
+            class="MuiButtonBase-root MuiIconButton-root MuiIconButton-sizeSmall css-yo6ymh-MuiButtonBase-root-MuiIconButton-root"
+            data-testid="card-action-remove"
+            tabindex="0"
+            type="button"
+          >
+            <svg
+              aria-hidden="true"
+              class="MuiSvgIcon-root MuiSvgIcon-fontSizeSmall css-ptiqhd-MuiSvgIcon-root"
+              data-testid="DeleteIcon"
+              focusable="false"
+              viewBox="0 0 24 24"
+            >
+              <path
+                d="M6 19c0 1.1.9 2 2 2h8c1.1 0 2-.9 2-2V7H6v12zM19 4h-3.5l-1-1h-5l-1 1H5v2h14V4z"
+              />
+            </svg>
+            <span
+              class="MuiTouchRipple-root css-8je8zh-MuiTouchRipple-root"
+            />
+          </button>
+        </span>
+        <span
+          class="text-xs font-semibold"
+          data-testid="card-priority"
+          style="color: orange;"
+        >
+          MEDIUM
+        </span>
+      </div>
+      <div
+        class="flex flex-row items-center justify-between"
+      >
+        <span
+          class="text-sm text-gray-400"
+          data-testid="card-created-at"
+        >
+          Created at: 
+          11/5/2023
+        </span>
+        <img
+          alt="assigned user"
+          class="rounded-full"
+          data-testid="card-assigned-photo"
+          height="20"
+          width="20"
+        />
+      </div>
+    </div>
+    <div>
+      <div />
+    </div>
+  </div>
+</div>
+`;
