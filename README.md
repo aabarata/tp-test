@@ -23,10 +23,10 @@ Launches the test runner in the interactive watch mode.\
 
 ### Use a translation library (ex. i18n) even if for now only exist one language so we could in a fast way introduce others in the future
 
-### Find a strategy to remove the "any" from the todo form
+### Find a strategy to remove the "any" from the todo select elements
 
 ### Use a custom hook to manage the form state
 
-### Place a single modal at the root level and use for example Portal to update is content (could also be use using context)
+### Place a single modal/notification component at the root level and use for example Portal to update is content (could also be use using context)
 
 ### Better error handling if the fetch users endpoint fails
