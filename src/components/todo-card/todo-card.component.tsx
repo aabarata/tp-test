@@ -62,7 +62,7 @@ const TodoCard = ({ className, todo }: TodoCardProps) => {
 
   return (
     <div
-      className={`flex flex-row bg-white px-1.5 py-2 rounded ${
+      className={`flex flex-row bg-white px-1.5 py-2 rounded shadow-md ${
         className ?? ""
       }`}
     >
