@@ -9,6 +9,7 @@ import {
   Select,
   MenuItem,
   SelectChangeEvent,
+  FormHelperText,
 } from "@mui/material";
 import { TodoContext } from "../../context/todo.context";
 import { UserContext } from "../../context/user.context";
@@ -29,7 +30,7 @@ const TodoAddUpdate = ({
   const { addTodo, updateTodo } = useContext(TodoContext);
   const { users } = useContext(UserContext);
   const [isModalOpen, setIsModalOpen] = useState(isOpen);
-  const [disabled] = useState<boolean>(false);
+  const [disabled, setDisabled] = useState<boolean>(false);
   const [name, setName] = useState<string>("");
   const [notes, setNotes] = useState<string>("");
   const [priority, setPriority] = useState<TodoPriority>(TodoPriority.LOW);
@@ -53,6 +54,12 @@ const TodoAddUpdate = ({
     }
     setIsModalOpen(isOpen);
   }, [isOpen, todo]);
+
+  useEffect(() => {
+    if (name === "" || assignedUserUUID === "") {
+      setDisabled(true);
+    }
+  }, [name, assignedUserUUID]);
 
   const handleClose = () => {
     setIsModalOpen(false);
@@ -90,10 +97,10 @@ const TodoAddUpdate = ({
             <TextField
               className="w-full"
               id={nameInputID}
+              label="Name"
+              required
               variant="standard"
-              label="Type the todo name"
               helperText={!name ? "The name is required." : null}
-              error={!name}
               value={name}
               onChange={(event: ChangeEvent<HTMLInputElement>) =>
                 setName(event.target.value)
@@ -102,10 +109,12 @@ const TodoAddUpdate = ({
             <TextField
               className="w-full"
               id={notesInputID}
+              label="Notes"
               variant="standard"
+              placeholder="Write some details about the todo"
               multiline
               rows={4}
-              label="Type some notes"
+              sx={{ marginTop: "8px" }}
               value={notes}
               onChange={(event: ChangeEvent<HTMLInputElement>) =>
                 setNotes(event.target.value)
@@ -117,13 +126,13 @@ const TodoAddUpdate = ({
             >
               <InputLabel id={`${prioritySelectID}-label`}>Priority</InputLabel>
               <Select
+                label="Priority"
                 labelId={`${prioritySelectID}-label`}
                 id={prioritySelectID}
                 value={priority as any}
                 onChange={(event: SelectChangeEvent<HTMLSelectElement>) =>
                   setPriority(event.target.value as any)
                 }
-                label="Priority"
               >
                 <MenuItem value={TodoPriority.LOW}>Low</MenuItem>
                 <MenuItem value={TodoPriority.MEDIUM}>Medium</MenuItem>
@@ -138,13 +147,14 @@ const TodoAddUpdate = ({
                 Assign to
               </InputLabel>
               <Select
+                label="Assign to"
+                required
                 labelId={`${assignedUserSelectID}-label`}
                 id={assignedUserSelectID}
                 value={assignedUserUUID as any}
                 onChange={(event: SelectChangeEvent<HTMLSelectElement>) =>
                   setAssignedUserUUID(event.target.value as string)
                 }
-                label="Priority"
               >
                 <MenuItem value="">Select a user</MenuItem>
                 {users.map((user) => (
@@ -154,6 +164,9 @@ const TodoAddUpdate = ({
                   >{`${user.name.first} ${user.name.last}`}</MenuItem>
                 ))}
               </Select>
+              <FormHelperText>
+                {!assignedUserUUID ? "The todo needs a user assigned" : null}
+              </FormHelperText>
             </FormControl>
           </div>
         }
