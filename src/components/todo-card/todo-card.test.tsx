@@ -96,5 +96,36 @@ describe("todoCard", () => {
     const checkbox = checkboxWrapper?.childNodes[0] as HTMLInputElement;
     expect(checkbox?.checked).toBeTruthy();
   });
-  //TODO: test if the actions are triggered
+  it("Should have the tree actions displayed", () => {
+    render(
+      <MemoryRouter initialEntries={["/"]}>
+        <TodoCard todo={mockedTodo} />
+      </MemoryRouter>
+    );
+    const details = screen.queryByTestId("card-action-details");
+    const edit = screen.queryByTestId("card-action-update");
+    const remove = screen.queryByTestId("card-action-remove");
+    expect(details).toBeInTheDocument();
+    expect(edit).toBeInTheDocument();
+    expect(remove).toBeInTheDocument();
+  });
+  it("Should have the edit action enabled when the todo is not completed", () => {
+    render(
+      <MemoryRouter initialEntries={["/"]}>
+        <TodoCard todo={mockedTodo} />
+      </MemoryRouter>
+    );
+    const edit = screen.queryByTestId("card-action-update");
+    expect(edit).not.toBeDisabled();
+  });
+  it("Should have the edit action disabled when the todo is completed", () => {
+    const todo = { ...mockedTodo, completed: true };
+    render(
+      <MemoryRouter initialEntries={["/"]}>
+        <TodoCard todo={todo} />
+      </MemoryRouter>
+    );
+    const edit = screen.queryByTestId("card-action-update");
+    expect(edit).toBeDisabled();
+  });
 });

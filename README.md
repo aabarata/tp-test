@@ -26,6 +26,7 @@ Launches the test runner in the interactive watch mode.\
 - Find a better strategy to deal with the form validation.
 - Place a single modal/notification component at the root level and use for example Portal to update the content (could also be done use using context).
 - Better error handling if the fetch users endpoint fails.
+- Add tests to both contexts
 
 ## Usability improvements
 
@@ -35,4 +36,4 @@ Launches the test runner in the interactive watch mode.\
 
 ## Missing features
 
-- Login page ([Example using Google Auth](https://github.com/aabarata/crown-clothing))
+- Login page (In my repositories i have two similar examples [Example using react with Google Auth](https://github.com/aabarata/crown-clothing) - [Example using Vue with auth0](https://github.com/aabarata/vue_auth0_course))
