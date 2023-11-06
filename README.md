@@ -2,7 +2,7 @@
 
 ## Approach Taken
 
-I started my implementation to create the TS types and both contexts since they are the core of the app. I decided to keep them separated since they are independent of each other even if linked by the assigned user and because it becomes easier to make them evolve. Since it was requested data persistence and all data manipulation were implemented in the context the responsibility of writing the updated data in the local storage was also placed in the context. The choice of the local storage to keep persistence was based on being easier compared to other methods and respecting the requirements.
+I started my implementation by creating the TS types and both contexts since they are the core of the app. I decided to keep them separated since they are independent of each other even if linked by the assigned user and because it becomes easier to make them evolve. Since it was requested data persistence and all data manipulation were implemented in the context the responsibility of writing the updated data in the local storage was also placed in the context. The choice of the local storage to keep persistence was based on being easier compared to other methods and respecting the requirements.
 
 The next step was to break the app UI into different components in a way that each component has its own responsibility and the less logic possible inside (a point that can still be improved, mainly in the form modal).
 
