@@ -10,7 +10,7 @@ type TodoListProps = {
 const TodoList = ({ todos, isCompletedList = false }: TodoListProps) => {
   return (
     <div
-      className={`rounded-lg p-3 ${styles.list} ${
+      className={`rounded-lg p-3 overflow-y-auto ${styles.list} ${
         isCompletedList ? "bg-green-col" : "bg-blue-col"
       }`}
     >

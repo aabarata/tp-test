@@ -58,6 +58,8 @@ const TodoAddUpdate = ({
   useEffect(() => {
     if (name === "" || assignedUserUUID === "") {
       setDisabled(true);
+    } else {
+      setDisabled(false);
     }
   }, [name, assignedUserUUID]);
 

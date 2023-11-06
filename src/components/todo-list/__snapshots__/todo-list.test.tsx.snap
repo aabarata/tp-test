@@ -3,7 +3,7 @@
 exports[`todoCard Should match the snapshot 1`] = `
 <div>
   <div
-    class="rounded-lg p-3 list bg-blue-col"
+    class="rounded-lg p-3 overflow-y-auto list bg-blue-col"
   >
     <div
       class="flex flex-row bg-white px-1.5 py-2 rounded shadow-md mb-2"
